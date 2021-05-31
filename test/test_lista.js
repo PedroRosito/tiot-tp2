@@ -76,12 +76,18 @@ describe("cuando se agrega un elemento al final", function(){
     })
 })
 
-describe("en una lista con elementos",function(){
+describe("cuando se elimina un elemento de una lista con datos",function(){
     var lista = new Lista();
     lista.add("arbol","valor2");
     lista.remove("arbol");
 
-    it("se debe poder eliminar un elemento a partir de su clave", function(){
+    it("la cantidad se actualiza correctamente", function(){
         assert.equal(lista.count(),0);
+    })
+    it("la clave no se encuentra almacenada en la lista", function(){
+        assert.deepEqual(lista.getList(), []);
+    })
+    it("la clave no se encuentra al buscarla", function(){
+        assert.deepEqual(lista.find("arbol"),NaN);
     })
 })
